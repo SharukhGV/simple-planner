@@ -63,7 +63,6 @@ function NewForm() {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             step="0.01"
-            min="0"
             placeholder="0.00"
             required
           />
