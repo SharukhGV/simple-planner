@@ -1,14 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 
-function NewForm() {
+function GoalsNewForm() {
   const [date, setDate] = useState('');
   const [amount, setAmount] = useState('');
   const [notes, setNotes] = useState('');
   const [dataJSON, setDataJSON] = useState([]);
 
   useEffect(() => {
-    const storedData = window.localStorage.getItem("dataJSON");
+    // Load existing data from localStorage when component mounts
+    const storedData = window.localStorage.getItem("goals");
     if (storedData) {
       setDataJSON(JSON.parse(storedData));
     }
@@ -31,7 +32,7 @@ function NewForm() {
     // Update state and localStorage
     const newData = [...dataJSON, formInfo];
     setDataJSON(newData);
-    window.localStorage.setItem("dataJSON", JSON.stringify(newData));
+    window.localStorage.setItem("goals", JSON.stringify(newData));
 
     console.log('Form submitted:', formInfo);
 
@@ -84,4 +85,4 @@ function NewForm() {
   );
 };
 
-export default NewForm;
+export default GoalsNewForm;

@@ -12,7 +12,10 @@ import ReceiptDetails from "./Components/receipts/ReceiptDetails";
 import EditForm from "./Components/forms/EditForm";
 import NewForm from "./Components/forms/NewForm";
 // import StoreInfo from "./Pages/StoreInfo";
-
+import GoalsIndexPage from "./Components/goals/GoalsIndexPage";
+import GoalsDetails from "./Components/goals/GoalsDetails";
+import GoalsEditForm from "./Components/goals/GoalsEditForm";
+import GoalsNewForm from "./Components/goals/GoalsNewForm";
 
 function App() {
   const [fileData, setFileData] = useState(null);
@@ -30,6 +33,8 @@ function App() {
   }, [theme]);
 
 
+
+
   useEffect(() => {
 
     if (window.localStorage.getItem("dataJSON")) {
@@ -39,7 +44,17 @@ function App() {
     } else {
       window.localStorage.setItem("dataJSON", JSON.stringify([]));
     }
+
+
+    if (window.localStorage.getItem("goals")) {
+
+      window.localStorage.getItem("goals");
+
+    } else {
+      window.localStorage.setItem("goals", JSON.stringify([]));
+    }
   }, [])
+
 
   return (
     <Router>
@@ -50,7 +65,11 @@ function App() {
         <Route path="/receipts/:id" element={<ReceiptDetails toggleTheme={toggleTheme} theme={theme} setTheme={setTheme} />} />
         <Route path="/receipts/:id/edit" element={<EditForm />} />
         <Route path="/receipts/new" element={<NewForm />} />
-
+{/* 
+        <Route path="/goals" element={<GoalsIndexPage fileData={fileData} />} />
+        <Route path="/goals/:id" element={<GoalsDetails toggleTheme={toggleTheme} theme={theme} setTheme={setTheme} />} />
+        <Route path="/goals/:id/edit" element={<GoalsEditForm />} />
+        <Route path="/goals/new" element={<GoalsNewForm />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

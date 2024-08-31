@@ -12,7 +12,7 @@ function Nav({ toggleTheme, theme, setTheme }) {
   let nonactiveStyle = {
     textDecoration: "none",
 
-    color: "limegreen",
+    color: "white",
   };
 
   return (
@@ -37,7 +37,7 @@ function Nav({ toggleTheme, theme, setTheme }) {
               exact="true"
               style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
             >
-              All Receipts
+              All Info
             </NavLink>
           </li>
 
@@ -52,8 +52,30 @@ function Nav({ toggleTheme, theme, setTheme }) {
               New Form
             </NavLink>
           </li>
+{/* 
+          <li>
+            <NavLink
+              className="links"
+              to="/goals"
+              exact="true"
+              style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
+            >
+              All Goals
+            </NavLink>
+          </li>
 
-    
+          <li>
+            {" "}
+            <NavLink
+              className="links"
+              to="/receipts/new"
+              exact="true"
+              style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
+            >
+              New Goals Form
+            </NavLink>
+          </li>
+     */}
         </ul>
       </nav></span>
   );

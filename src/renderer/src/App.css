@@ -1,557 +1,275 @@
-.homePAge {
-
-  margin: auto;
-  padding-left: 200px;
-  padding-right: 200px;
-  font-size: 20px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-
+:root {
+  --primary-color: #d5006d;
+  --secondary-color: #ff69b4;
+  --background-color: #f9f3f9;
+  --text-color: #4a2c4a;
 }
 
-
-.light {
-  background-color: rgb(255, 255, 255);
-  display: fixed;
-  margin: auto;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-}
-
-
-
-
-.dark {
-  color: white;
-  background: #050527;
-}
-
-
-.dark .cardContact {
-  text-align: center;
-  font-size: medium;
-  border: solid;
-  border-radius: 10px;
-  padding: 10px;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #69278a2d;
-  color: beige;
-padding: 15px;
-
-}
-
-.light .cardContact {
-  text-align: center;
-  font-size: medium;
-  border: solid;
-  border-radius: 10px;
-  padding: 10px;
-  margin: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-
-
-}
-
-#root {
-  background-color: #cccccc00;
-  z-index: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  border-radius: 30px;
-  text-align: center;
-}
-
-.dark nav {
-  background-color: #13104be4;
-}
-
-.light nav {
-  background-color: #00000070;
-}
-
-
-
-.new {
-  text-align: center;
-
-}
-
-li {
-  display: inline-block;
-}
-
-
-
-.no-bullets {
-  list-style-type: none;
-  background-color: rgba(47, 4, 43, 0);
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
   padding: 20px;
 }
 
-.links {
-  padding-left: 10px;
-  padding-right: 10px;
+/* Header styling */
+h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5em;
 }
 
-
-.links:hover {
-  background-color: rgba(7, 245, 165, 0.202);
-  border-radius: 10%;
-  padding: 10px;
-}
-
-
-
-.dark .thedreamtable {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  color: white;
-
-}
-
-.light .thedreamtable {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  color: rgb(0, 0, 0);
-  max-width: 250px;
-
-}
-
-.dark a {
-  color: rgb(255, 208, 0);
-}
-
-.light a {
-  color: rgb(68, 7, 75);
-}
-
-:visited {
-  color: rgb(255, 67, 99)
-}
-
-.dark .thedreamtable td,
-#customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.light .thedreamtable td,
-#customers th {
-  border: 1px solid #000000;
-  padding: 8px;
-}
-
-.dark .thedreamtable tr:nth-child(even) {
-  background-color: #00000000;
-}
-
-.dark .thedreamtable tr:hover {
-  background-color: #000000b3;
-}
-
-.dark .thedreamtable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #0704aa;
-}
-
-.light .thedreamtable tr:nth-child(even) {
-  background-color: #ffffff;
-}
-
-.light .thedreamtable tr:hover {
-  background-color: #ffffff;
-}
-
-.light .thedreamtable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #3d17179d;
-  margin: auto
-}
-
-input[type=text],
-select,
+/* Input fields styling */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
 textarea {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 3px solid #555555;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #391545df;
-  color: whitesmoke;
-}
-
-input[type=date],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 3px solid #555;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #555;
-  color: whitesmoke;
-
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-
-
-.thedreamtableSHOW {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.dark .thedreamtableSHOW td,
-#customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  color: whitesmoke
-}
-
-.dark .thedreamtableSHOW tr:nth-child(even) {
-  background-color: #0814411b
-}
-
-.dark .thedreamtableSHOW tr th {
-  text-align: center;
-}
-
-.dark.thedreamtableSHOW tr:hover {
-  background-color: #7a0a7263;
-}
-
-.dark.thedreamtableSHOW th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #895bcf86;
-}
-
-
-.light .thedreamtableSHOW tr:nth-child(even) {
-  background-color: #ffffff
-}
-
-.light .thedreamtableSHOW tr th {
-  text-align: center;
-}
-
-.light.thedreamtableSHOW tr:hover {
-  background-color: #ffffff;
-}
-
-.light.thedreamtableSHOW th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #3e0e0eaf;
-}
-
-.dark .thedreamtable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #895bcf;
-}
-
-.light .thedreamtable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #291212b0;
-}
-
-
-.thedreamtable tr {
-  text-align: center;
-}
-
-
-button {
-  width: 30%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-right: 5px;
-
-}
-
-.editbutton {
-  width: 30%;
-  background-color: #da5b16;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.delete {
-  width: 30%;
-  background-color: #af4c4c;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-
-.dark legend {
-  color: hsl(0, 0%, 85%);
-}
-
-.light legend {
-  color: hsl(0, 0%, 0%);
-}
-
-@media (min-width: 300px) and (max-width: 768px) {
-
-
-  .homePAge {
-
-    margin: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 20px;
-    text-align: center;
-  }
-
-
-  .cardContact {
-    text-align: center;
-    font-size: small;
-    border: solid;
-    border-radius: 10px;
-    padding: 10px;
-    margin: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    z-index: 0;
-
-  }
-
-  .links {
-    font-size: small;
-  }
-
-
-  button {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .editbutton {
-    width: 100%;
-    background-color: #da5b16;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .delete {
-    width: 100%;
-    background-color: #af4c4c;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  #dreamLogo {
-    max-width: 250px;
-    max-height: auto;
-  }
-
-}
-
-
-
-
-
-.edit {
-  background-color: #8104aa00;
-}
-
-
-
-
-.buttonPDF {
-  background-color: #ffffff00;
-}
-
-/* 
-.dreamLogo{width: 30px;
-max-height: auto;} */
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-
-
-@media (min-width: 769px) {
-
-  #dreamLogo {
-    max-width: 370px;
-    max-height: auto;
-  }
-}
-
-.brain:hover {
-  background-color: rgba(255, 0, 0, 0.233);
-  border-radius: 50%;
-}
-
-* {
-  font-family: sans-serif;
-}
-
-body {
-  overflow: auto;
-}
-
-.backButton {
-  background-color: #45a049;
-}
-
-
-
-
-.addProductButton :hover {
-  background-color: darkred;
-}
-
-.tableReceipt {
-  margin: auto;
-  max-width: 500px;
-
-}
-
-.tableReceipt tr {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
-
-.tableReceipt tr:nth-child(even) {
-  background-color: #ffffff;
-  color: black;
-}
-
-/* General input styling */
-input[type="datetime-local"],
-input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Focus state for inputs */
+/* Focus effect for input fields */
+input[type="text"]:focus,
+input[type="number"]:focus,
 input[type="datetime-local"]:focus,
-input[type="number"]:focus {
+textarea:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* Specific styling for date input */
-input[type="datetime-local"] {
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #fff;
-
-  padding-right: 32px;
+/* Placeholder text styling */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-color);
+  opacity: 0.6;
 }
 
-/* Specific styling for monetary amount input */
-input[type="number"] {
-  appearance: textfield;
-  -moz-appearance: textfield;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='1' x2='12' y2='23'%3E%3C/line%3E%3Cpath d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 20px;
-  padding-right: 32px;
+/* Button styling */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Remove spinner buttons from number input */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/* Button hover effect */
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
-/* Placeholder styling */
-input::placeholder {
-  color: #999;
+/* Table styling */
+.thedreamtable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-/* Label styling */
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
+.thedreamtable th,
+.thedreamtable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--primary-color);
 }
 
-/* Form group styling */
-.form-group {
+.thedreamtable th {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Card styling */
+.cardContact {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
-.parent{
-  width: 90%;;
+/* Total amount styling */
+.total-amount {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Navbar Container */
+.navBar {
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* NavLink styling */
+.links {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* NavLink hover effect */
+.links:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Active NavLink styling */
+.links.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Color chooser styling */
+.color-chooser {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.color-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.color-input label {
+  margin-right: 10px;
+  min-width: 120px;
+}
+
+.color-input input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.color-input input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-input input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  button {
+    width: 100%;
+  }
+
+  .navBar {
+    padding: 10px;
+  }
+
+  .no-bullets {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navBar li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Navbar Container */
+.navBar {
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove default list styling and align items horizontally */
+.no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* List items */
+.navBar li {
+  margin-right: 20px;
+}
+
+/* NavLink styling */
+.links {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* NavLink hover effect */
+.links:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Active NavLink styling */
+.links.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Home logo button */
+.brain {
+  transition: transform 0.3s ease;
+  max-width: 35px;
+  vertical-align: middle;
+}
+
+.brain:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .navBar {
+    padding: 10px;
+  }
+
+  .no-bullets {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navBar li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
