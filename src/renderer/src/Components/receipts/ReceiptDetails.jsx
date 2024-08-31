@@ -45,10 +45,10 @@ function ReceiptDetails() {
   }
 
   return (
-    <div className="printFriendly">
+    <div className="apple">
       <div className="spacerDIV"></div>
       <div className="showNavigation">
-        <table className="tableReceipt">
+        <table className="thedreamtable">
           <tbody>
             <tr>
               <th>Category</th>

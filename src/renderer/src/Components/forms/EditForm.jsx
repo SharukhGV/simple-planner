@@ -1,36 +1,61 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditForm() {
   const [date, setDate] = useState('');
   const [amount, setAmount] = useState('');
   const [notes, setNotes] = useState('');
+  const [receipt, setReceipt] = useState(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Convert the stored date string back to a format that datetime-local input can use
-    const dateObj = new Date(entry.date);
-    const formattedDate = dateObj.toISOString().slice(0, 16); // Format: "YYYY-MM-DDTHH:mm"
+    const fetchReceipt = () => {
+      const storedData = window.localStorage.getItem("dataJSON");
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        const foundReceipt = parsedData.find(item => item.id === parseInt(id, 10));
+        if (foundReceipt) {
+          setReceipt(foundReceipt);
+          setDate(new Date(foundReceipt.date).toISOString().slice(0, 16));
+          setAmount(foundReceipt.amount.toString());
+          setNotes(foundReceipt.notes);
+        }
+      }
+    };
 
-    setDate(formattedDate);
-    setAmount(entry.amount.toString());
-    setNotes(entry.notes);
-  }, [entry]);
+    fetchReceipt();
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Convert date to local time
     const localDate = new Date(date);
     const formattedDate = localDate.toLocaleString();
 
     const updatedEntry = {
-      ...entry,
+      ...receipt,
       date: formattedDate,
       amount: parseFloat(amount),
       notes: notes,
     };
 
-    onSave(updatedEntry);
+    const storedData = JSON.parse(window.localStorage.getItem("dataJSON"));
+    const updatedData = storedData.map(item => 
+      item.id === parseInt(id, 10) ? updatedEntry : item
+    );
+    window.localStorage.setItem("dataJSON", JSON.stringify(updatedData));
+
+    navigate('/receipts');
   };
+
+  const handleCancel = () => {
+    navigate('/receipts');
+  };
+
+  if (!receipt) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="parent">
@@ -71,11 +96,11 @@ function EditForm() {
         </div>
         <div className="form-actions">
           <button type="submit" className="save-btn">Save Changes</button>
-          <button type="button" className="cancel-btn" onClick={onCancel}>Cancel</button>
+          <button type="button" className="cancel-btn" onClick={handleCancel}>Cancel</button>
         </div>
       </form>
     </div>
   );
-};
+}
 
 export default EditForm;
