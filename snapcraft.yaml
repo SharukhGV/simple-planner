@@ -1,0 +1,37 @@
+name: simple-planner
+version: '0.1'
+summary: A simple finance planner system for personal use
+description: |
+  A simple finance planner.
+
+grade: stable
+confinement: strict
+
+parts:
+  simple-planner:
+    plugin: nodejs
+    node-version: '18.13.0'
+    source: .
+    build-packages:
+      - nodejs
+      - npm
+    override-build: |
+      set -e
+      npm install -g npm@latest
+      npm install
+      npm run build
+    stage-packages:
+      - libnss3
+      - libnspr4
+      - libx11-xcb1
+      - libxkbfile1
+
+apps:
+  simple-planner:
+    command: electron . --no-sandbox
+    plugs:
+      - network
+      - network-bind
+      - x11
+      - wayland
+      - home

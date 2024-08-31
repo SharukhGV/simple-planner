@@ -1,0 +1,12 @@
+<Applications>
+  <Application Id="App" Executable="dream-journal-1.0.0-setup.exe" EntryPoint="Windows.FullTrustApplication">
+    <uap:VisualElements
+      DisplayName="Simple POS"
+      Description="A Receipt Tracking System"
+      BackgroundColor="#464646"
+      Square150x150Logo="\build\150dreamjournallogo.png"
+      Square44x44Logo="\build\44dreamlogo.png">
+      <uap:SplashScreen Image="Assets\SplashScreen.png" />
+    </uap:VisualElements>
+  </Application>
+</Applications>
