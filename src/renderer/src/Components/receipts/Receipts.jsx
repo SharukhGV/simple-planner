@@ -15,7 +15,9 @@ function Receipts({ fileData }) {
     const storedData = window.localStorage.getItem("dataJSON");
     if (storedData) {
       const parsedData = JSON.parse(storedData);
-      setReceipts(parsedData);
+      // Sort receipts by date when initially loading
+      const sortedData = parsedData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setReceipts(sortedData);
     }
   }, []);
 
@@ -45,6 +47,9 @@ function Receipts({ fileData }) {
       filtered = filtered.filter(receipt => parseFloat(receipt.amount) >= 0);
     }
 
+    // Sort filtered receipts by date
+    filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+
     setFilteredReceipts(filtered);
   }, [query, receipts, displayMode, searchField]);
 
@@ -64,12 +69,22 @@ function Receipts({ fileData }) {
     setTotal(sum);
   }, [filteredReceipts]);
 
+  // Group receipts by date
+  const groupedReceipts = filteredReceipts.reduce((groups, receipt) => {
+    const date = receipt.date;
+    if (!groups[date]) {
+      groups[date] = [];
+    }
+    groups[date].push(receipt);
+    return groups;
+  }, {});
+
   return (
     <div style={{marginLeft:"15px", marginRight:"15px"}} className="cardContact">
       <h1>Simple Planner</h1>
       <div>Your information is stored locally. Here is your funds log</div>
       <div className="search-container">
-      <div className="search-buttons">
+        <div className="search-buttons">
           <button onClick={() => setSearchField('all')} className={searchField === 'all' ? 'active' : ''}>All Fields</button>
           <button onClick={() => setSearchField('notes')} className={searchField === 'notes' ? 'active' : ''}>Notes</button>
           <button onClick={() => setSearchField('date')} className={searchField === 'date' ? 'active' : ''}>Date</button>
@@ -81,29 +96,32 @@ function Receipts({ fileData }) {
           placeholder="Search information..." 
           value={query}
         />
-     
       </div>
       <div style={{textAlign:"center"}} className="filter-buttons">
         <button onClick={() => setDisplayMode('all')} className={displayMode === 'all' ? 'active' : ''}>All Totals</button>
         <button onClick={() => setDisplayMode('expenses')} className={displayMode === 'expenses' ? 'active' : ''}>Expenses</button>
         <button onClick={() => setDisplayMode('funds')} className={displayMode === 'funds' ? 'active' : ''}>Funds</button>
       </div>
-      <div className="cardContact">
-        <table className="thedreamtable">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>ID</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-            {filteredReceipts.map((receipt) => (
-              <Receipt
-                key={receipt.id}
-                receipt={receipt}
-              />
-            ))}
-        </table>
+      <div className="cardContact">    <table className="thedreamtable">
+              <thead>
+                <tr>
+                <th>Date</th>
+
+                  <th>ID</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+        {Object.entries(groupedReceipts).map(([date, dateReceipts]) => (
+        
+                dateReceipts.map((receipt) => (
+                  <Receipt
+                    key={receipt.id}
+                    receipt={receipt}
+                  />
+                ))            
+
+            
+        ))}</table>
       </div>
       <div className="total-amount">
         <TotalAmount total={Number(total)} />
