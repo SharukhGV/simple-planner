@@ -52,6 +52,18 @@ function Nav({ toggleTheme, theme, setTheme }) {
               New Form
             </NavLink>
           </li>
+
+          <li>
+            {" "}
+            <NavLink
+              className="links"
+              to="/goals"
+              exact="true"
+              style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
+            >
+              Goals
+            </NavLink>
+          </li>
 {/* 
           <li>
             <NavLink

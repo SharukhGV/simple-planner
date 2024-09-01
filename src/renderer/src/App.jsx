@@ -16,6 +16,7 @@ import GoalsIndexPage from "./Components/goals/GoalsIndexPage";
 import GoalsDetails from "./Components/goals/GoalsDetails";
 import GoalsEditForm from "./Components/goals/GoalsEditForm";
 import GoalsNewForm from "./Components/goals/GoalsNewForm";
+import GoalSetter from "./Components/goals/GoalSetter";
 
 function App() {
   const [fileData, setFileData] = useState(null);
@@ -65,6 +66,9 @@ function App() {
         <Route path="/receipts/:id" element={<ReceiptDetails toggleTheme={toggleTheme} theme={theme} setTheme={setTheme} />} />
         <Route path="/receipts/:id/edit" element={<EditForm />} />
         <Route path="/receipts/new" element={<NewForm />} />
+        <Route path="/receipts/new" element={<NewForm />} />
+        <Route path="/goals" element={<GoalSetter />} />
+
 {/* 
         <Route path="/goals" element={<GoalsIndexPage fileData={fileData} />} />
         <Route path="/goals/:id" element={<GoalsDetails toggleTheme={toggleTheme} theme={theme} setTheme={setTheme} />} />

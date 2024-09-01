@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Receipt from "./Receipt"
+import TotalAmount from "./TotalAmount";
 
 function Receipts({ fileData }) {
   const [receipts, setReceipts] = useState([]);
@@ -13,9 +14,7 @@ function Receipts({ fileData }) {
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       setReceipts(parsedData);
-
     }
-
   }, []);
 
   useEffect(() => {
@@ -32,17 +31,17 @@ function Receipts({ fileData }) {
     setQuery(e.target.value);
   }
 
-useEffect(()=>{
   function calculateTotal(data) {
-    const sum = data.reduce((acc, receipt) => {
-      // Ensure the amount is a number before adding
+    return data.reduce((acc, receipt) => {
       const amount = parseFloat(receipt.amount);
       return acc + (isNaN(amount) ? 0 : amount);
     }, 0);
-    setTotal(sum.toFixed(2)); // Round to 2 decimal places
   }
-  calculateTotal(receipts)
-},[receipts])
+
+  useEffect(() => {
+    const sum = calculateTotal(receipts);
+    setTotal(sum);
+  }, [receipts]);
 
   return (
     <div style={{marginLeft:"15px", marginRight:"15px"}} className="cardContact">
@@ -72,7 +71,7 @@ useEffect(()=>{
         </table>
       </div>
       <div className="total-amount">
-        <strong>Total Amount: ${total}</strong>
+        <TotalAmount total={Number(total)} />
       </div>
     </div>
   );
