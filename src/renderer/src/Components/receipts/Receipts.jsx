@@ -8,6 +8,8 @@ function Receipts({ fileData }) {
   const [query, setQuery] = useState("");
   const [filteredReceipts, setFilteredReceipts] = useState([]);
   const [total, setTotal] = useState(0);
+  const [displayMode, setDisplayMode] = useState('all'); // 'all', 'expenses', or 'funds'
+  const [searchField, setSearchField] = useState('all'); // 'all', 'notes', 'date', or 'id'
 
   useEffect(() => {
     const storedData = window.localStorage.getItem("dataJSON");
@@ -18,14 +20,33 @@ function Receipts({ fileData }) {
   }, []);
 
   useEffect(() => {
-    const filtered = receipts.filter(receipt => 
-      receipt.id.toString().includes(query) ||
-      receipt.date.toLowerCase().includes(query.toLowerCase()) ||
-      receipt.amount.toString().includes(query) ||
-      receipt.notes.toLowerCase().includes(query.toLowerCase())
-    );
+    let filtered = receipts.filter(receipt => {
+      if (query === "") return true;
+      
+      switch(searchField) {
+        case 'notes':
+          return receipt.notes.toLowerCase().includes(query.toLowerCase());
+        case 'date':
+          return receipt.date.toLowerCase().includes(query.toLowerCase());
+        case 'id':
+          return receipt.id.toString().includes(query);
+        default: // 'all'
+          return receipt.id.toString().includes(query) ||
+                 receipt.date.toLowerCase().includes(query.toLowerCase()) ||
+                 receipt.amount.toString().includes(query) ||
+                 receipt.notes.toLowerCase().includes(query.toLowerCase());
+      }
+    });
+
+    // Apply display mode filter
+    if (displayMode === 'expenses') {
+      filtered = filtered.filter(receipt => parseFloat(receipt.amount) < 0);
+    } else if (displayMode === 'funds') {
+      filtered = filtered.filter(receipt => parseFloat(receipt.amount) >= 0);
+    }
+
     setFilteredReceipts(filtered);
-  }, [query, receipts]);
+  }, [query, receipts, displayMode, searchField]);
 
   function handleTextChangeSearch(e) {
     setQuery(e.target.value);
@@ -39,20 +60,34 @@ function Receipts({ fileData }) {
   }
 
   useEffect(() => {
-    const sum = calculateTotal(receipts);
+    const sum = calculateTotal(filteredReceipts);
     setTotal(sum);
-  }, [receipts]);
+  }, [filteredReceipts]);
 
   return (
     <div style={{marginLeft:"15px", marginRight:"15px"}} className="cardContact">
       <h1>Simple Planner</h1>
       <div>Your information is stored locally. Here is your funds log</div>
-      <input 
-        type="text" 
-        onChange={handleTextChangeSearch} 
-        placeholder="Search receipts..." 
-        value={query}
-      />
+      <div className="search-container">
+        <input 
+          type="text" 
+          onChange={handleTextChangeSearch} 
+          placeholder="Search receipts..." 
+          value={query}
+        />
+        <div className="search-buttons">
+          <button onClick={() => setSearchField('all')} className={searchField === 'all' ? 'active' : ''}>All Fields</button>
+          <button onClick={() => setSearchField('notes')} className={searchField === 'notes' ? 'active' : ''}>Notes</button>
+          <button onClick={() => setSearchField('date')} className={searchField === 'date' ? 'active' : ''}>Date</button>
+          <button onClick={() => setSearchField('id')} className={searchField === 'id' ? 'active' : ''}>ID</button>
+        </div>
+      </div>
+      <p>Filter Funds</p>
+      <div className="filter-buttons">
+        <button onClick={() => setDisplayMode('all')} className={displayMode === 'all' ? 'active' : ''}>All Totals</button>
+        <button onClick={() => setDisplayMode('expenses')} className={displayMode === 'expenses' ? 'active' : ''}>Expenses</button>
+        <button onClick={() => setDisplayMode('funds')} className={displayMode === 'funds' ? 'active' : ''}>Funds</button>
+      </div>
       <div className="cardContact">
         <table className="thedreamtable">
           <thead>
@@ -62,7 +97,7 @@ function Receipts({ fileData }) {
               <th>Amount</th>
             </tr>
           </thead>
-            {(query ? filteredReceipts : receipts).map((receipt) => (
+            {filteredReceipts.map((receipt) => (
               <Receipt
                 key={receipt.id}
                 receipt={receipt}
