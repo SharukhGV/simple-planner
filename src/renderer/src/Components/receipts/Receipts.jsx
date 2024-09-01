@@ -69,21 +69,21 @@ function Receipts({ fileData }) {
       <h1>Simple Planner</h1>
       <div>Your information is stored locally. Here is your funds log</div>
       <div className="search-container">
-        <input 
-          type="text" 
-          onChange={handleTextChangeSearch} 
-          placeholder="Search receipts..." 
-          value={query}
-        />
-        <div className="search-buttons">
+      <div className="search-buttons">
           <button onClick={() => setSearchField('all')} className={searchField === 'all' ? 'active' : ''}>All Fields</button>
           <button onClick={() => setSearchField('notes')} className={searchField === 'notes' ? 'active' : ''}>Notes</button>
           <button onClick={() => setSearchField('date')} className={searchField === 'date' ? 'active' : ''}>Date</button>
           <button onClick={() => setSearchField('id')} className={searchField === 'id' ? 'active' : ''}>ID</button>
         </div>
+        <input 
+          type="text" 
+          onChange={handleTextChangeSearch} 
+          placeholder="Search information..." 
+          value={query}
+        />
+     
       </div>
-      <p>Filter Funds</p>
-      <div className="filter-buttons">
+      <div style={{textAlign:"center"}} className="filter-buttons">
         <button onClick={() => setDisplayMode('all')} className={displayMode === 'all' ? 'active' : ''}>All Totals</button>
         <button onClick={() => setDisplayMode('expenses')} className={displayMode === 'expenses' ? 'active' : ''}>Expenses</button>
         <button onClick={() => setDisplayMode('funds')} className={displayMode === 'funds' ? 'active' : ''}>Funds</button>
