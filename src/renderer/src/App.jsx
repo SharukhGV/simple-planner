@@ -12,12 +12,13 @@ import ReceiptDetails from "./Components/receipts/ReceiptDetails";
 import EditForm from "./Components/forms/EditForm";
 import NewForm from "./Components/forms/NewForm";
 // import StoreInfo from "./Pages/StoreInfo";
-import GoalsIndexPage from "./Components/goals/GoalsIndexPage";
-import GoalsDetails from "./Components/goals/GoalsDetails";
-import GoalsEditForm from "./Components/goals/GoalsEditForm";
-import GoalsNewForm from "./Components/goals/GoalsNewForm";
-import GoalSetter from "./Components/goals/GoalSetter";
+// import GoalsIndexPage from "./Components/goals/GoalsIndexPage";
+// import GoalsDetails from "./Components/goals/GoalsDetails";
+// import GoalsEditForm from "./Components/goals/GoalsEditForm";
+// import GoalsNewForm from "./Components/goals/GoalsNewForm";
+// import GoalSetter from "./Components/goals/GoalSetter";
 import SavingsTracker from "./Components/savings/SavingsTracker";
+import SpendingLimitSetter from "./Components/goals/SpendingLimitSetter";
 
 function App() {
   const [fileData, setFileData] = useState(null);
@@ -68,7 +69,7 @@ function App() {
         <Route path="/receipts/:id/edit" element={<EditForm />} />
         <Route path="/receipts/new" element={<NewForm />} />
         <Route path="/receipts/new" element={<NewForm />} />
-        <Route path="/goals" element={<GoalSetter />} />
+        {/* <Route path="/spendinglimit" element={<SpendingLimitSetter />} /> */}
         <Route path="/savings" element={<SavingsTracker />} />
 
 {/* 

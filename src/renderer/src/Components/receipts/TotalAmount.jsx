@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from 'react';
 
 const TotalAmount = ({ total }) => {
-  const [goalAmount, setGoalAmount] = useState(null);
-  const [isGoalReached, setIsGoalReached] = useState(false);
+  const [spendingLimit, setSpendingLimit] = useState(null);
+  const [isLimitExceeded, setIsLimitExceeded] = useState(false);
 
   useEffect(() => {
-    const storedGoal = localStorage.getItem('userGoal');
-    if (storedGoal) {
-      const { amount } = JSON.parse(storedGoal);
-      setGoalAmount(parseFloat(amount));
+    const storedLimit = localStorage.getItem('userSpendingLimit');
+    if (storedLimit) {
+      const { amount } = JSON.parse(storedLimit);
+      setSpendingLimit(parseFloat(amount));
     }
   }, []);
 
   useEffect(() => {
-    setIsGoalReached(goalAmount !== null && typeof total === 'number' && total >= goalAmount);
-  }, [total, goalAmount]);
+    setIsLimitExceeded(spendingLimit !== null && typeof total === 'number' && total < spendingLimit);
+  }, [total, spendingLimit]);
 
   const formatAmount = (amount) => {
     return typeof amount === 'number' ? amount.toFixed(2) : '0.00';
   };
 
   return (
-    <div className={`total-amount ${isGoalReached ? 'goal-reached' : ''}`}>
+    <div className={`total-amount ${isLimitExceeded ? 'limit-exceeded' : ''}`}>
       <strong>Total Amount: ${formatAmount(total)}</strong>
-      {goalAmount === null ? (
-        <div className="no-goal-message">No goal set. Set a goal to track your progress!</div>
-      ) : isGoalReached ? (
-        <div className="goal-achieved">
-          <span className="goal-achieved-message">Goal Surpassed!</span>
+      {/* {spendingLimit === null ? (
+        <div className="no-limit-message">No spending limit set. Set a limit to monitor your spending!</div>
+      ) : isLimitExceeded ? (
+        <div className="limit-exceeded">
+          <span className="limit-exceeded-message">Warning! Spending Limit Exceeded</span>
         </div>
       ) : (
-        <div className="goal-progress">
-          Goal: ${formatAmount(goalAmount)} (${formatAmount(goalAmount - (total || 0))} to go)
+        <div className="limit-progress">
+          Limit: ${formatAmount(spendingLimit)} (${formatAmount(spendingLimit - (total || 0))} remaining)
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -37,7 +37,7 @@ function Nav({ toggleTheme, theme, setTheme }) {
               exact="true"
               style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
             >
-              All Info
+              Spending Log
             </NavLink>
           </li>
 
@@ -49,21 +49,21 @@ function Nav({ toggleTheme, theme, setTheme }) {
               exact="true"
               style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
             >
-              New Form
+              Spending Form
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             {" "}
             <NavLink
               className="links"
-              to="/goals"
+              to="/spendinglimit"
               exact="true"
               style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
             >
-              Goals
+              Spending Limit Setter
             </NavLink>
-          </li>
+          </li> */}
 
           <li>
             {" "}

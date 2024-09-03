@@ -81,7 +81,7 @@ function Receipts({ fileData }) {
 
   return (
     <div style={{marginLeft:"15px", marginRight:"15px"}} className="cardContact">
-      <h1>Simple Planner</h1>
+      <h1>Spending Log</h1>
       <div>Your information is stored locally. Here is your Spending log</div>
       <div className="search-container">
         <div className="search-buttons">

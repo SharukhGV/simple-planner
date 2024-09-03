@@ -65,7 +65,7 @@ const GoalSetter = () => {
 
   return (
     <div className="goal-display">
-      <h2>Your Goal</h2>
+      <h2>Spending Limit Threshold</h2>
       <p>Amount: ${goalAmount}</p>
       <p>Topic: {goalTopic}</p>
       <button onClick={handleEdit} className="edit-btn">Edit Goal</button>

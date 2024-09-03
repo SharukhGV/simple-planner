@@ -56,7 +56,8 @@ function NewForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="amount">Monetary Amount:</label>
+          <label htmlFor="amount">Monetary Amount</label>
+          <p>Positive Values Denote Funds for Spending and Negative Values Denote Expenses:</p>
           <input
             type="number"
             id="amount"
