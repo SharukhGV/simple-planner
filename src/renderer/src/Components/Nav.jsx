@@ -64,6 +64,19 @@ function Nav({ toggleTheme, theme, setTheme }) {
               Goals
             </NavLink>
           </li>
+
+          <li>
+            {" "}
+            <NavLink
+              className="links"
+              to="/savings"
+              exact="true"
+              style={({ isActive }) => (isActive.isActive ? activeStyle : nonactiveStyle)}
+            >
+              Savings
+            </NavLink>
+          </li>
+
 {/* 
           <li>
             <NavLink

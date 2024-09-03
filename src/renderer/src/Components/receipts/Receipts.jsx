@@ -82,7 +82,7 @@ function Receipts({ fileData }) {
   return (
     <div style={{marginLeft:"15px", marginRight:"15px"}} className="cardContact">
       <h1>Simple Planner</h1>
-      <div>Your information is stored locally. Here is your funds log</div>
+      <div>Your information is stored locally. Here is your Spending log</div>
       <div className="search-container">
         <div className="search-buttons">
           <button onClick={() => setSearchField('all')} className={searchField === 'all' ? 'active' : ''}>All Fields</button>
@@ -98,7 +98,7 @@ function Receipts({ fileData }) {
         />
       </div>
       <div style={{textAlign:"center"}} className="filter-buttons">
-        <button onClick={() => setDisplayMode('all')} className={displayMode === 'all' ? 'active' : ''}>All Totals</button>
+        <button onClick={() => setDisplayMode('all')} className={displayMode === 'all' ? 'active' : ''}>All Progress</button>
         <button onClick={() => setDisplayMode('expenses')} className={displayMode === 'expenses' ? 'active' : ''}>Expenses</button>
         <button onClick={() => setDisplayMode('funds')} className={displayMode === 'funds' ? 'active' : ''}>Funds</button>
       </div>

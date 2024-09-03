@@ -17,6 +17,7 @@ import GoalsDetails from "./Components/goals/GoalsDetails";
 import GoalsEditForm from "./Components/goals/GoalsEditForm";
 import GoalsNewForm from "./Components/goals/GoalsNewForm";
 import GoalSetter from "./Components/goals/GoalSetter";
+import SavingsTracker from "./Components/savings/SavingsTracker";
 
 function App() {
   const [fileData, setFileData] = useState(null);
@@ -68,6 +69,7 @@ function App() {
         <Route path="/receipts/new" element={<NewForm />} />
         <Route path="/receipts/new" element={<NewForm />} />
         <Route path="/goals" element={<GoalSetter />} />
+        <Route path="/savings" element={<SavingsTracker />} />
 
 {/* 
         <Route path="/goals" element={<GoalsIndexPage fileData={fileData} />} />
