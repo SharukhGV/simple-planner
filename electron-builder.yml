@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: Simple POS
+productName: Simple Planner
 directories:
   buildResources: build
 files:
