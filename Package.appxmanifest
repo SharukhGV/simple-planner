@@ -2,7 +2,7 @@
   <Application Id="App" Executable="dream-journal-1.0.0-setup.exe" EntryPoint="Windows.FullTrustApplication">
     <uap:VisualElements
       DisplayName="Simple Planner"
-      Description="A Receipt Tracking System"
+      Description="A Financial Planner for Personal Use"
       BackgroundColor="#464646"
       Square150x150Logo="\build\150dreamjournallogo.png"
       Square44x44Logo="\build\44dreamlogo.png">
